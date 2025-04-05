@@ -2,13 +2,19 @@
   "version": 2,
   "headers": [
     {
-      "source": "/(.*\\.(html|htm))", // Match any .html or .htm file
+      "source": "/(.*\\.(html|htm))",
       "headers": [
-        { "key": "Content-Type", "value": "text/html; charset=utf-8" }
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
+        }
       ]
     }
   ],
   "rewrites": [
-     { "source": "/", "destination": "/index.html" }
-   ]
+    {
+      "source": "/",
+      "destination": "/index.html"
+    }
+  ]
 }
