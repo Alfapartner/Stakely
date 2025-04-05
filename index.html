@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta http-equiv="Content-Style-Type" content="text/css"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Connecting Wallet...&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="Generator" content="Cocoa HTML Writer"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="CocoaVersion" content="2575.4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style type="text/css"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body { font-family: sans-serif; padding: 1em; text-align: center; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.loader { border: 4px solid #f3f3f3; border-radius: 50%; border-top: 4px solid #3498db; width: 30px; height: 30px; animation: spin 2s linear infinite; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p&gt;Connecting to your TON wallet...&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="loader"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p&gt;&lt;small&gt;If nothing happens, ensure you have a TON Connect compatible wallet installed.&lt;/small&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Get the full query string (e.g., "?tc=tc%3A%2F%2F...")</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const queryString = window.location.search;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Create URLSearchParams object</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const urlParams = new URLSearchParams(queryString);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// Get the value of the 'tc' parameter</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const tcLink = urlParams.get('tc'); // Assuming we name the parameter 'tc'</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (tcLink) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Decode the tcLink just in case it was double-encoded, though usually not needed if encoded once correctly</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const decodedTcLink = decodeURIComponent(tcLink);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>console.log("Redirecting to:", decodedTcLink);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Redirect the browser to the tc: link</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>window.location.href = decodedTcLink;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.body.innerHTML = '&lt;p style="color: red;"&gt;Error: Connection link parameter is missing.&lt;/p&gt;';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>console.error("Missing 'tc' parameter in URL");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>} catch (e) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.body.innerHTML = '&lt;p style="color: red;"&gt;Error initiating wallet connection.&lt;/p&gt;';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>console.error("Error during redirect:", e);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
